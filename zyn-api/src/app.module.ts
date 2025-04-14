@@ -1,17 +1,9 @@
-import { TypeOrmModule } from '@nestjs/typeorm';
+import { Module } from '@nestjs/common';
+import { UsuariosModule } from './usuarios/usuarios.module';
+import { DadosSaudeModule } from './dados-saude/dados-saude.module';
 
 @Module({
-  imports: [
-    TypeOrmModule.forRoot({
-      type: 'mysql',
-      host: 'localhost',
-      port: 3306,
-      username: 'root',
-      password: 'Password',
-      database: 'zyn_app_db',
-      autoLoadEntities: true,
-      synchronize: true,
-    }),
-  ],
+  imports: [UsuariosModule, DadosSaudeModule],
 })
 export class AppModule {}
+
