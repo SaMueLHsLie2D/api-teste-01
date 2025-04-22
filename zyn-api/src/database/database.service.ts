@@ -1,22 +1,20 @@
 import { Injectable } from '@nestjs/common';
-import { createPool, Pool } from 'mysql2/promise';
+import * as mysql from 'mysql2/promise';
 
 @Injectable()
 export class DatabaseService {
-  private pool: Pool;
+  private connection: mysql.Connection;
 
-  constructor() {
-    this.pool = createPool({
+  async onModuleInit() {
+    this.connection = await mysql.createConnection({
       host: 'localhost',
       user: 'root',
       password: 'Password',
       database: 'zyn_app_db',
-      waitForConnections: true,
-      connectionLimit: 10,
     });
   }
 
-  getConnection() {
-    return this.pool;
+  getConnection(): mysql.Connection {
+    return this.connection;
   }
 }

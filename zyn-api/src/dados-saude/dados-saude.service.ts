@@ -23,7 +23,7 @@ export class DadosSaudeService {
   }
 
   async calcularProgresso(usuarioId: number) {
-    const historico: any[] = await this.obterHistorico(usuarioId);
+    const historico = (await this.obterHistorico(usuarioId)) as any[];
     if (historico.length < 2) return null;
 
     const inicial = historico[0];
