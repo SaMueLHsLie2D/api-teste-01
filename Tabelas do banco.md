@@ -25,3 +25,40 @@ gordura_corporal DECIMAL(5,2),
 data_registro DATE DEFAULT (CURRENT_DATE),
 FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
+
+-Teste de incersão de dados-
+
+Método: POST
+
+URL: http://localhost:3000/usuarios/1/dados-saude
+
+Body (raw → JSON):
+
+json
+Copy
+Edit
+
+{
+  "peso": 70.5,
+  "gordura_corporal": 18.2
+}
+
+-Teste de consulta- 
+
+Método: GET
+
+URL: http://localhost:3000/usuarios/1/dados-saude/progresso
+
+{
+  "peso": -1.5,
+  "gordura_corporal": -2.3
+}
+
+Método: GET
+
+URL: http://localhost:3000/usuarios/1/dados-saude/progresso
+
+{
+  "peso": -1.5,
+  "gordura_corporal": -2.3
+}
