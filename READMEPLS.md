@@ -1,6 +1,6 @@
 # api-teste-01
 
-Tabelas do banco pra vc criar Melk
+Tabelas do banco pra vc criar
 
 --Nome do Banco/Schemas
 
@@ -25,6 +25,8 @@ CREATE TABLE dados_saude (
  data_registro DATE DEFAULT (CURRENT_DATE),
  FOREIGN KEY (usuario_id) REFERENCES usuarios(id) ON DELETE CASCADE
 );
+
+Pra iniciar a API tu vai na pasta raiz e digita: "npm run start:dev"
 
 -Teste de incersão de dados-
 
